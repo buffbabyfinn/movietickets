@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title></title>
+    <title>Movie Tickets</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,33 +14,53 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Header</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
+        <h1>Come Watch a Movie</h1>
+        <p>Select the movie you would like to see, your ticket type, and the time you would like to see it: </p>
       </div>  <!-- /JUMBOTRON -->
 
-  <!-- Row: 1 -->
-      <div class="row">
-        <div class="col-sm-12">
 
-  <!-- Form -->        
-          <form class="">
+      <div class="container">
+
+  <!-- Form -->
+          <form id="movie-ticket">
             <div class="form-group">
-              <label for="">Lorem Ipsum Baby!:</label>
-              <input class="hotPuddin" type="text" name="name" value="">
+              <label for="">Movie Name</label>
+              <select class="movie" type="select">
+                <option class="movie" value="10">The Assassin</option>
+                <option class="movie" value="10">Burnt</option>
+                <option class="movie" value="10">Sacrificial Youth</option>
+                <option class="movie" value="9">Psycho</option>
+                <option class="movie" value="9">Office Space</option>
+                <option class="movie" value="9">Die Hard</option>
+              </select>
             </div>
-
             <div class="form-group">
-              <label for="">Lorem Ipsum Baby!:</label>
-              <input class="hotPuddin" type="text" name="name" value="">
+              <label for="">Ticket Type</label>
+              <select class="type" type="select">
+                <option class="type" value="-4">Child</option>
+                <option class="type" value="-2">Senior</option>
+                <option class="type" value="0">Adult</option>
+              </select>
             </div>
-
-            <button class="btn btn-info" type="submit" name="button">Gimme some sugar baby</button>
+            <div class="form-group">
+              <label for="">Movie Times</label>
+              <select class="time" type="select">
+                <option class="time" value="-2">10am</option>
+                <option class="time" value="-2">12pm</option>
+                <option class="time" value="0">7pm</option>
+                <option class="time" value="0">5pm</option>
+                <option class="time" value="0">9pm</option>
+                <option class="time" value="0">10pm</option>
+              </select>
+            </div>
+            <button class="btn btn-info" id="submit" type="submit">Make my Ticket</button>
           </form>
-
-        </div>  <!-- /col-sm-12 -->
-      </div>  <!-- /Row -->
-
+    </div>
     </div>  <!-- /Container -->
+
+    <div id="ticket">
+
+    </div>
 
   </body>
 </html>

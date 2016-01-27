@@ -1,37 +1,54 @@
-// Business Logic
-// var helloWorld = function(){
-//   return false;
-//
-//   For loops and shit go here
-//   If/else like a madman here
-//
-//  return shit like a mo-fo here
-//
-//   ...whatchyu lookin at bitch? Green those specs and git back to work!
-//  Time fo yo Interface Logic, then suckface when it's all green.
-// };
+function Ticket(type, time, movie) {
+  this.type = type;
+  this.time = time;
+  this.movie = movie;
+  // this.price = [];
+}
 
+function Price(movieVal, typeVal, timeVal) {
 
+   this.movieVal = movieVal;
+   this.typeVal = typeVal;
+   this.timeVal = timeVal;
+ }
 
+ Price.prototype.fullPrice = function() {
 
+   var price = this.movieVal + this.typeVal + this.timeVal;
 
+   return "$" + price + ".00";
+ }
 
+ Ticket.prototype.fullTicket = function() {
+   return this.type + " at " + this.time + " for " + this.movie;
+ }
 
+function resetFields() {
+  $("input#newType").val("");
+  $("input#newTime").val("");
+  $("input.newMovie").val("");
+}
 
-// User Interface Logic
-// $(document).ready(function() {
-//   $("form#IDselector").submit(function(event) {
-//     // variables and shit go here, bitch!
-//
-//     // link your muthafuckin' variables to yo bad-ass bidness logic function, Yo!
-//
-//     // Make shit happen here...BITCH!
-//
-//     // Muthafuckin' variables connect to your output down here hommie.
-//
-//     // Show me some money, hunny, and reveal that hiddin fine shit you got stashed.
-//
-//     // It's all good baby.'
-//     event.preventDefault();
-//   });
-// });
+$(document).ready(function() {
+  $("form#movie-ticket").submit(function(event) {
+    debugger;
+
+    var inputtedType = $(".type option:selected").text();
+    var inputtedTime = $(".time option:selected").text();
+    var inputtedMovie = $(".movie option:selected").text();
+    var newTicket = new Ticket(inputtedType, inputtedTime, inputtedMovie);
+
+    var movieVal = parseInt($(".movie option:selected").val());
+    var typeVal = parseInt($(".type option:selected").val());
+    var timeVal = parseInt($(".time option:selected").val());
+    var newPrice = new Price(movieVal, typeVal, timeVal);
+
+      // $("#postAddress").hide();
+  //  $('#postAddress').not(this).hide();
+
+    $("div#ticket").text("One " newTicket.fullTicket() + ". Your total is: " +  newPrice.fullPrice());
+
+    resetFields();
+    event.preventDefault();
+  });
+});
